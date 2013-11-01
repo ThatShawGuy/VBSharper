@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<actions>
+  <insert group-id="ReSharper" position="last">
+    <action-group id="VBSharper.Plugins" text="VBSharper.Plugins">
+      <action id="VBSharper.Plugins.About" text="About VBSharper" />
+      <!-- to break up elements use <separator/> -->
+    </action-group>
+  </insert>
+</actions>
