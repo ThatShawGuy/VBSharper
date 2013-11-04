@@ -13,3 +13,4 @@ Quick Fixes
 -----------
 
 Use IsNot Operator - Replace "Not x Is y" with "x IsNot y"
+Remove ByVal Keyword - Explicit use of ByVal keyword is unnecessary
