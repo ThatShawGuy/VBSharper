@@ -1,15 +1,11 @@
 using System;
 using System.Linq;
-using JetBrains.Application;
 using JetBrains.Application.Progress;
-using JetBrains.DocumentManagers;
-using JetBrains.DocumentModel;
 using JetBrains.ProjectModel;
 using JetBrains.ReSharper.Feature.Services.Bulbs;
 using JetBrains.ReSharper.Intentions.Extensibility;
 using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.ReSharper.Psi.VB;
-using JetBrains.ReSharper.Psi.VB.CodeStyle;
 using JetBrains.ReSharper.Psi.VB.Tree;
 using JetBrains.TextControl;
 using JetBrains.Util;

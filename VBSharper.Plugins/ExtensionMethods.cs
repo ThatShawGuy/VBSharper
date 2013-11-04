@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using JetBrains.Application;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.ExtensionsAPI.Tree;
 using JetBrains.ReSharper.Psi.Files;
 using JetBrains.ReSharper.Psi.Tree;
-using JetBrains.ReSharper.Psi.VB;
 using JetBrains.ReSharper.Psi.VB.Tree;
 
 namespace VBSharper.Plugins
@@ -31,12 +29,11 @@ namespace VBSharper.Plugins
         /// <returns></returns>
         public static IVBExpression ReplaceByExtension(this IVBExpression oldExpression, IVBExpression newExpression)
         {
-            using (WriteLockCookie.Create(oldExpression.IsPhysical()))
-            {
+            using (WriteLockCookie.Create(oldExpression.IsPhysical())) {
                 if (oldExpression.Contains(newExpression))
                     newExpression = newExpression.Copy(oldExpression.Parent);
 
-                return ModificationUtil.ReplaceChild(oldExpression, newExpression);
+                return ModificationUtil.ReplaceChild(oldExpression, newExpression);               
             }
         }
     }
