@@ -11,6 +11,6 @@ Much thanks to the ReSharper team for providing an excellent plugin framework.
 
 Quick Fixes
 -----------
-
-Use IsNot Operator - Replace "Not x Is y" with "x IsNot y"
-Remove ByVal Keyword - Explicit use of ByVal keyword is unnecessary
+<ul>
+  <li>Use IsNot Operator - Replace "Not x Is y" with "x IsNot y"</li>
+  <li>Remove ByVal Keyword - Explicit use of ByVal keyword is unnecessary</li>
