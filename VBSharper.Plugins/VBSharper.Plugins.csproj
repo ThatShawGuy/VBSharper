@@ -50,7 +50,6 @@
     <Compile Include="RemoveByValKeyword\RemoveByValKeywordDaemonStage.cs" />
     <Compile Include="RemoveByValKeyword\RemoveByValKeywordQuickFix.cs" />
     <Compile Include="RemoveByValKeyword\RemoveByValKeywordSettings.cs" />
-    <Compile Include="RemoveVBLegacyReferences\RemoveVBLegacyReferencesDaemonStage.cs" />
     <Compile Include="UseIsNotOperator\UseIsNotOperatorDaemonStage.cs" />
     <Compile Include="UseIsNotOperator\UseIsNotOperatorSettings.cs" />
     <Compile Include="UseIsNotOperator\UseIsNotOperatorQuickFix.cs" />
