@@ -53,6 +53,7 @@
     <Compile Include="UseIsNotOperator\UseIsNotOperatorDaemonStage.cs" />
     <Compile Include="UseIsNotOperator\UseIsNotOperatorSettings.cs" />
     <Compile Include="UseIsNotOperator\UseIsNotOperatorQuickFix.cs" />
+    <Compile Include="UseIsNotOperator\UseIsNotOperatorUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Actions.xml" />

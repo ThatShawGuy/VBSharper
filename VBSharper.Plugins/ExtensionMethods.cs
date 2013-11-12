@@ -10,9 +10,9 @@ namespace VBSharper.Plugins
 {
     static class ExtensionMethods
     {
-        public static List<T> ToList<T>(this T item) {
-            return new List<T> {item};
-        }
+        //public static List<T> ToList<T>(this T item) where T : struct {
+        //    return new List<T> { item };
+        //}
         
         public static bool IsPrimaryLanguage<TLanguageType>(this IPsiSourceFile sourceFile) where TLanguageType : PsiLanguageType {
             var psiServices = sourceFile.GetPsiServices();

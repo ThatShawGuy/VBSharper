@@ -37,19 +37,10 @@ namespace VBSharper.Plugins.UseIsNotOperator
 
         public override void Execute(Action<DaemonStageResult> committer) {
             if (DaemonProcess.InterruptFlag) return;
-            
-            var highlights = new List<HighlightingInfo>();
-            using (ReadLockCookie.Create()) {
-                File.ProcessChildren<ILogicalNotExpression>(
-                    logicalNotExpression => {
-                        var isExpression = logicalNotExpression.Children<IIsExpression>().FirstOrDefault();
-                        if (isExpression == null) return;
 
-                        var docRange = logicalNotExpression.GetDocumentRange();
-                        highlights.Add(new HighlightingInfo(docRange,
-                            new UseIsNotOperatorHighlighting(logicalNotExpression)));
-                    });
-            }
+            var expressions = UseIsNotOperatorUtil.GetLogicalNotExpressionsThatCanUseIsNotExpression(File);
+            var highlights = Enumerable.ToList(expressions.Select(expression => new HighlightingInfo(expression.Value, new UseIsNotOperatorHighlighting(expression.Key))));
+
             committer(new DaemonStageResult(highlights));
         }
     }
