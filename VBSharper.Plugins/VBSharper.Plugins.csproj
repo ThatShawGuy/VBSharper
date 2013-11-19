@@ -47,13 +47,17 @@
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AboutAction.cs" />
-    <Compile Include="RemoveByValKeyword\RemoveByValKeywordDaemonStage.cs" />
-    <Compile Include="RemoveByValKeyword\RemoveByValKeywordQuickFix.cs" />
-    <Compile Include="RemoveByValKeyword\RemoveByValKeywordSettings.cs" />
-    <Compile Include="UseIsNotOperator\UseIsNotOperatorDaemonStage.cs" />
-    <Compile Include="UseIsNotOperator\UseIsNotOperatorSettings.cs" />
-    <Compile Include="UseIsNotOperator\UseIsNotOperatorQuickFix.cs" />
-    <Compile Include="UseIsNotOperator\UseIsNotOperatorUtil.cs" />
+    <Compile Include="QuickFixes\Base\BulkQuickFixBase.cs" />
+    <Compile Include="QuickFixes\Base\FileQuickFixBase.cs" />
+    <Compile Include="QuickFixes\Base\QuickFixHelperBase.cs" />
+    <Compile Include="QuickFixes\RemoveByValKeyword\RemoveByValKeywordDaemonStage.cs" />
+    <Compile Include="QuickFixes\RemoveByValKeyword\RemoveByValKeywordQuickFix.cs" />
+    <Compile Include="QuickFixes\RemoveByValKeyword\RemoveByValKeywordQuickFixHelper.cs" />
+    <Compile Include="QuickFixes\RemoveByValKeyword\RemoveByValKeywordSettings.cs" />
+    <Compile Include="QuickFixes\UseIsNotOperator\UseIsNotOperatorDaemonStage.cs" />
+    <Compile Include="QuickFixes\UseIsNotOperator\UseIsNotOperatorQuickFix.cs" />
+    <Compile Include="QuickFixes\UseIsNotOperator\UseIsNotOperatorQuickFixHelper.cs" />
+    <Compile Include="QuickFixes\UseIsNotOperator\UseIsNotOperatorSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Actions.xml" />

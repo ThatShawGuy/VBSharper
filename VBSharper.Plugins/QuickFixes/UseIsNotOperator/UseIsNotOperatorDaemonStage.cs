@@ -1,15 +1,11 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Application;
 using JetBrains.Application.Settings;
 using JetBrains.ReSharper.Daemon;
 using JetBrains.ReSharper.Daemon.VB.Stages;
-using JetBrains.ReSharper.Psi;
-using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.ReSharper.Psi.VB;
 using JetBrains.ReSharper.Psi.VB.Tree;
-using VBSharper.Plugins.UseIsNotOperator;
+using VBSharper.Plugins.QuickFixes.UseIsNotOperator;
 
 [assembly: RegisterConfigurableSeverity(UseIsNotOperatorHighlighting.SeverityId,
     null,
@@ -19,7 +15,7 @@ using VBSharper.Plugins.UseIsNotOperator;
     Severity.SUGGESTION,
     false)]
 
-namespace VBSharper.Plugins.UseIsNotOperator
+namespace VBSharper.Plugins.QuickFixes.UseIsNotOperator
 {
     [DaemonStage(StagesBefore = new[] { typeof(LanguageSpecificDaemonStage) })]
     public class UseIsNotOperatorDaemonStage : VBDaemonStageBase
@@ -38,8 +34,8 @@ namespace VBSharper.Plugins.UseIsNotOperator
         public override void Execute(Action<DaemonStageResult> committer) {
             if (DaemonProcess.InterruptFlag) return;
 
-            var expressions = UseIsNotOperatorUtil.GetLogicalNotExpressionsThatCanUseIsNotExpression(File);
-            var highlights = Enumerable.ToList(expressions.Select(expression => new HighlightingInfo(expression.Value, new UseIsNotOperatorHighlighting(expression.Key))));
+            var expressions = new UseIsNotOperatorQuickFixHelper().GetTreeNodeDocumentRanges(File);
+            var highlights = expressions.Select(expression => new HighlightingInfo(expression.DocumentRange, new UseIsNotOperatorHighlighting(expression.TreeNode))).ToList();
 
             committer(new DaemonStageResult(highlights));
         }

@@ -1,7 +1,7 @@
 ﻿using JetBrains.Application.Settings;
 using JetBrains.ReSharper.Settings;
 
-namespace VBSharper.Plugins.RemoveByValKeyword
+namespace VBSharper.Plugins.QuickFixes.RemoveByValKeyword
 {
     [SettingsKey(typeof(CodeInspectionSettings), "Remove ByVal Keyword")]
     public class RemoveByValKeywordSettings

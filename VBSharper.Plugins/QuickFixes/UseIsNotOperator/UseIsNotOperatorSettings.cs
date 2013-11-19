@@ -1,7 +1,7 @@
 ﻿using JetBrains.Application.Settings;
 using JetBrains.ReSharper.Settings;
 
-namespace VBSharper.Plugins.UseIsNotOperator
+namespace VBSharper.Plugins.QuickFixes.UseIsNotOperator
 {
     [SettingsKey(typeof(CodeInspectionSettings),"Use IsNot operator")]
     public class UseIsNotOperatorSettings

@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Application;
 using JetBrains.Application.Settings;
 using JetBrains.ReSharper.Daemon;
 using JetBrains.ReSharper.Daemon.VB.Stages;
-using JetBrains.ReSharper.Psi;
-using JetBrains.ReSharper.Psi.Parsing;
 using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.ReSharper.Psi.VB;
-using JetBrains.ReSharper.Psi.VB.Parsing;
 using JetBrains.ReSharper.Psi.VB.Tree;
-using VBSharper.Plugins.RemoveByValKeyword;
+using VBSharper.Plugins.QuickFixes.RemoveByValKeyword;
 
 [assembly: RegisterConfigurableSeverity(RemoveByValKeywordHighlighting.SeverityId,
     null,
@@ -21,7 +16,7 @@ using VBSharper.Plugins.RemoveByValKeyword;
     Severity.HINT,
     false)]
 
-namespace VBSharper.Plugins.RemoveByValKeyword
+namespace VBSharper.Plugins.QuickFixes.RemoveByValKeyword
 {
     [DaemonStage(StagesBefore = new[] { typeof(LanguageSpecificDaemonStage) })]
     public class RemoveByValKeywordDaemonStage : VBDaemonStageBase
@@ -40,17 +35,10 @@ namespace VBSharper.Plugins.RemoveByValKeyword
         public override void Execute(Action<DaemonStageResult> committer) {
             if (DaemonProcess.InterruptFlag) return;
 
-            var highlights = new List<HighlightingInfo>();
-            using (ReadLockCookie.Create()) {
-                File.ProcessChildren<IParameterDeclaration>(
-                    parameterDeclaration => {
-                        var byValKeyword = parameterDeclaration.Children<ITokenNode>().FirstOrDefault(node => node.GetTokenType() == VBTokenType.BYVAL_KEYWORD);
-                        if (byValKeyword == null) return;
+            var util = new RemoveByValKeywordQuickFixHelper();
+            var byValKeywords = util.GetTreeNodeDocumentRanges(File);
+            var highlights = byValKeywords.Select(expression => new HighlightingInfo(expression.DocumentRange, new RemoveByValKeywordHighlighting(expression.TreeNode))).ToList();
 
-                        var docRange = byValKeyword.GetDocumentRange();
-                        highlights.Add(new HighlightingInfo(docRange, new RemoveByValKeywordHighlighting(byValKeyword)));
-                    });
-            }
             committer(new DaemonStageResult(highlights));
         }
     }

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using JetBrains.Application;
+﻿using JetBrains.Application;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.ExtensionsAPI.Tree;
 using JetBrains.ReSharper.Psi.Files;
