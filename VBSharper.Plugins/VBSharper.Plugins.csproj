@@ -58,6 +58,10 @@
     <Compile Include="QuickFixes\UseIsNotOperator\UseIsNotOperatorQuickFix.cs" />
     <Compile Include="QuickFixes\UseIsNotOperator\UseIsNotOperatorQuickFixHelper.cs" />
     <Compile Include="QuickFixes\UseIsNotOperator\UseIsNotOperatorSettings.cs" />
+    <Compile Include="QuickFixes\UseShortCircuitOperators\UseShortCircuitOperatorsDaemonStage.cs" />
+    <Compile Include="QuickFixes\UseShortCircuitOperators\UseShortCircuitOperatorsQuickFix.cs" />
+    <Compile Include="QuickFixes\UseShortCircuitOperators\UseShortCircuitOperatorsQuickFixHelper.cs" />
+    <Compile Include="QuickFixes\UseShortCircuitOperators\UseShortCircuitOperatorsSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Actions.xml" />
