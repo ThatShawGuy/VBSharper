@@ -9,8 +9,9 @@ Speaking of bias, my own bias is evident here in that these extensions are writt
 
 Much thanks to the ReSharper team for providing an excellent plugin framework.
 
-Quick Fixes
------------
+Bulk Quick Fixes
+----------------
 <ul>
   <li>Use IsNot Operator - Replace "Not x Is y" with "x IsNot y"</li>
   <li>Remove ByVal Keyword - Explicit use of ByVal keyword is unnecessary</li>
+  <li>Use Short-circuit Operators - Replace And with AndAlso & Or with OrElse</li>
