@@ -29,25 +29,27 @@ namespace VBSharper.Plugins.QuickFixes.UseShortCircuitOperators
         }
 
         public override void ApplyQuickFix(ITokenNode tokenNode) {
-            using (WriteLockCookie.Create(tokenNode.IsPhysical())) {
-                var logicalExpression = tokenNode.Parent as IVBBinaryExpression;
-                if (logicalExpression == null) return;
+            var logicalExpression = tokenNode.Parent as IVBBinaryExpression;
+            if (logicalExpression == null) return;
 
-                string shortCircuitOperator = null;
+            string shortCircuitOperator = null;
                 
-                if (tokenNode.GetTokenType() == VBTokenType.OR_KEYWORD) {
-                    shortCircuitOperator = VBTokenType.ORELSE_KEYWORD.TokenRepresentation;
-                }
-                else if (tokenNode.GetTokenType() == VBTokenType.AND_KEYWORD) {
-                    shortCircuitOperator = VBTokenType.ANDALSO_KEYWORD.TokenRepresentation;
-                }
-
-                if (shortCircuitOperator == null) return;
-
-                var elementFactory = VBElementFactory.GetInstance(tokenNode.GetPsiModule());
-                var newlogicalExpression = elementFactory.CreateExpression("$0 " + shortCircuitOperator + " $1", logicalExpression.LeftExpr, logicalExpression.RightExpr);
-                logicalExpression.ReplaceByExtension(newlogicalExpression);
+            if (tokenNode.GetTokenType() == VBTokenType.OR_KEYWORD) {
+                shortCircuitOperator = VBTokenType.ORELSE_KEYWORD.TokenRepresentation;
             }
+            else if (tokenNode.GetTokenType() == VBTokenType.AND_KEYWORD) {
+                shortCircuitOperator = VBTokenType.ANDALSO_KEYWORD.TokenRepresentation;
+            }
+
+            if (shortCircuitOperator == null) return;
+
+            logicalExpression.GetPsiServices().Transactions.Execute("UseShortCircuitOperatorsQuickFix",
+                () => {
+                    var elementFactory = VBElementFactory.GetInstance(tokenNode.GetPsiModule());
+                    var newlogicalExpression = elementFactory.CreateExpression("$0 " + shortCircuitOperator + " $1",
+                        logicalExpression.LeftExpr, logicalExpression.RightExpr);
+                    logicalExpression.ReplaceByExtension(newlogicalExpression);
+                });
         }
     }
 }

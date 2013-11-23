@@ -29,11 +29,11 @@ Public Class TestDummy1
         Dim myArray As Array = testers.ToList().ToArray()
         Dim justATest = ControlChars.NewLine
 
-        If (runners.Count > 0 OrElse runners.Count = 1) AndAlso runners.Count < 0 Then
+        If (runners.Count > 0 Or runners.Count = 1) And runners.Count < 0 Then
             ' Do something really cool here.
         End If
 
-        If Not (Not testers Is Nothing AndAlso Not testers Is Nothing) OrElse Not testers Is Nothing AndAlso Not runners IsNot Nothing Then
+        If Not (Not testers Is Nothing And Not testers Is Nothing) OrElse Not testers Is Nothing AndAlso Not runners IsNot Nothing Then
             myBoolean = True
         End If
 

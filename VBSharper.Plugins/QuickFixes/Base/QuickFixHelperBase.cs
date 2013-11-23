@@ -19,10 +19,28 @@ namespace VBSharper.Plugins.QuickFixes.Base
         }
 
         public void ApplyQuickFix(IFile file) {
-            GetTreeNodeDocumentRanges(file)
-                .Select(t => t.TreeNode)
-                .ToList()
-                .ForEach(ApplyQuickFix);
+            var quickFixIteration = 0;
+            const int quickFixReprocessingLimit = 20;
+
+            while (true) {
+                quickFixIteration++;
+                var treeNodes = GetTreeNodeDocumentRanges(file).Select(range => range.TreeNode).ToList();
+
+                bool needToReanalyzeFileAndReapplyQuickFix = false;
+
+                foreach (var treeNode in treeNodes) {
+                    if (treeNode.IsValid()) {
+                        ApplyQuickFix(treeNode);
+                    }
+                    else {
+                        // A previous fix invalidated the current node, we need to re-analyze and re-process the file.
+                        needToReanalyzeFileAndReapplyQuickFix = true;
+                    }
+                }
+
+                if (needToReanalyzeFileAndReapplyQuickFix && quickFixIteration < quickFixReprocessingLimit) continue;
+                break;
+            }
         }
 
         public abstract IEnumerable<QuickFixTreeNodeDocumentRange> GetTreeNodeDocumentRanges(IFile file);

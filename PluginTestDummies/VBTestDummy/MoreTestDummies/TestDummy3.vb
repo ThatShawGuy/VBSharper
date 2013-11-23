@@ -33,7 +33,7 @@ Public Class TestDummy3
             ' Do something really cool here.
         End If
 
-        If Not (Not testers Is Nothing AndAlso Not testers Is Nothing) OrElse (testers IsNot Nothing) And Not runners IsNot Nothing Then
+        If Not (Not testers Is Nothing AndAlso Not testers Is Nothing) Is Nothing OrElse (testers IsNot Nothing) And Not runners IsNot Nothing Then
             myBoolean = True
         End If
 
