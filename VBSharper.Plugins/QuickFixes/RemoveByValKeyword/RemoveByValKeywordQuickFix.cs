@@ -23,7 +23,7 @@ namespace VBSharper.Plugins.QuickFixes.RemoveByValKeyword
 
     public sealed class RemoveByValKeywordFileQuickFix : FileQuickFixBase<ITokenNode>
     {
-        public override string Text { get { return "Use IsNot operator in file"; } }
+        public override string Text { get { return "Remove ByVal keywords in file"; } }
         protected override IQuickFixHelper<ITokenNode> QuickFixHelper { get { return new RemoveByValKeywordQuickFixHelper(); } }
     }
 }

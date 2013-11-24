@@ -54,6 +54,11 @@
     <Compile Include="QuickFixes\RemoveByValKeyword\RemoveByValKeywordQuickFix.cs" />
     <Compile Include="QuickFixes\RemoveByValKeyword\RemoveByValKeywordQuickFixHelper.cs" />
     <Compile Include="QuickFixes\RemoveByValKeyword\RemoveByValKeywordSettings.cs" />
+    <Compile Include="QuickFixes\UseImplicitLineContinuation\UseImplicitLineContinuationDaemonStage.cs" />
+    <Compile Include="QuickFixes\UseImplicitLineContinuation\UseImplicitLineContinuationQuickFix.cs" />
+    <Compile Include="QuickFixes\UseImplicitLineContinuation\UseImplicitLineContinuationQuickFixHelper.cs" />
+    <Compile Include="QuickFixes\UseImplicitLineContinuation\UseImplicitLineContinuationSettings.cs" />
+    <Compile Include="QuickFixes\UseImplicitLineContinuation\VBImplicitLineContinuationHelper.cs" />
     <Compile Include="QuickFixes\UseIsNotOperator\UseIsNotOperatorDaemonStage.cs" />
     <Compile Include="QuickFixes\UseIsNotOperator\UseIsNotOperatorQuickFix.cs" />
     <Compile Include="QuickFixes\UseIsNotOperator\UseIsNotOperatorQuickFixHelper.cs" />

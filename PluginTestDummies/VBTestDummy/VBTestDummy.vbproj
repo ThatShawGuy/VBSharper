@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MoreTestDummies\TestDummy3.vb" />
+    <Compile Include="MyTestDummies\ImplicitLineContinuationDummy.vb" />
     <Compile Include="MyTestDummies\TestDummy1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

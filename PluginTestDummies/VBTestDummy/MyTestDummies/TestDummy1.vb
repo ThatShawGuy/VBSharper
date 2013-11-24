@@ -2,6 +2,8 @@
 Imports Microsoft.VisualBasic.ApplicationServices
 Imports Microsoft.VisualBasic
 
+
+<Serializable()>
 Public Class TestDummy1
 
     Private _justAProperty As String
@@ -25,6 +27,11 @@ Public Class TestDummy1
 
         Dim myBoolean As Boolean
         myBoolean = (testers IsNot Nothing)
+
+        Dim myLongString =
+            "Just a test " _
+            & "keep testing " &
+            "and we're done."
 
         Dim myArray As Array = testers.ToList().ToArray()
         Dim justATest = ControlChars.NewLine

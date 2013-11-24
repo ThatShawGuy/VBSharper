@@ -15,3 +15,4 @@ Bulk Quick Fixes
   <li>Use IsNot Operator - Replace "Not x Is y" with "x IsNot y"</li>
   <li>Remove ByVal Keyword - Explicit use of ByVal keyword is unnecessary</li>
   <li>Use Short-circuit Operators - Replace And with AndAlso & Or with OrElse</li>
+  <li>Use Implicit Line Continuation - Remove unnecessary explicit line continuation characters</li>
