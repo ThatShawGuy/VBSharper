@@ -49,6 +49,8 @@ namespace VBSharper.Plugins.QuickFixes.Base
             Action<IDocument, IPsiSourceFile, IProgressIndicator> psiTransactionAction =
                 (document, psiSourceFile, progressIndicator) => {
                     progressIndicator.TaskName = ProgressIndicatorTaskName;
+                    if (psiSourceFile.Properties.IsGeneratedFile) return;
+
                     foreach (var psiFile in psiFiles.GetPsiFiles<VBLanguage>(psiSourceFile).OfType<IVBFile>()) {
                         QuickFixHelper.ApplyQuickFix(psiFile);
                     }
