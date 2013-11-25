@@ -56,7 +56,7 @@ namespace VBSharper.Plugins.QuickFixes.Base
 
             FileQuickFix.File = file;
             var predicateByPsiLanaguage = BulkItentionsBuilderEx.CreateAcceptFilePredicateByPsiLanaguage<VBLanguage>(solution);
-            var bulkQuickFixBuilder = new BulkQuickFixWithCommonTransactionBuilder(this, FileQuickFix, solution, this.Text, psiTransactionAction, predicateByPsiLanaguage);
+            var bulkQuickFixBuilder = new BulkQuickFixWithCommonTransactionBuilder(this, FileQuickFix, solution, this.Text + "s", psiTransactionAction, predicateByPsiLanaguage);
             return bulkQuickFixBuilder.CreateBulkActions(projectFile, IntentionsAnchors.QuickFixesAnchor, IntentionsAnchors.QuickFixesAnchorPosition);
         }
     }

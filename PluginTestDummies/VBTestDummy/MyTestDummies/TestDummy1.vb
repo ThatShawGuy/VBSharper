@@ -30,7 +30,7 @@ Public Class TestDummy1
 
         Dim myLongString =
             "Just a test " _
-            & "keep testing " &
+            & "keep testing " & _
             "and we're done."
 
         Dim myArray As Array = testers.ToList().ToArray()

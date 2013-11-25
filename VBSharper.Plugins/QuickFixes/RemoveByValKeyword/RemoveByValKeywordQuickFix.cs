@@ -8,7 +8,7 @@ namespace VBSharper.Plugins.QuickFixes.RemoveByValKeyword
     [QuickFix]
     public sealed class RemoveByValKeywordQuickFix : BulkQuickFixBase<ITokenNode>
     {
-        public override string ProgressIndicatorTaskName { get { return "Removing ByVal Keyword"; } }
+        public override string ProgressIndicatorTaskName { get { return "Removing ByVal Keywords"; } }
         public override string Text { get { return "Remove ByVal keyword"; } }
         public override bool IsAvailable(IUserDataHolder cache) { return _highlighting.IsValid(); }
 

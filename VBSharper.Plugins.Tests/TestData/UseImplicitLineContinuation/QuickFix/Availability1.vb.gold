@@ -1,0 +1,111 @@
+﻿<| _
+|(0)Serializable()| _
+|(1)>| _
+|(2)<| _
+|(3)Obsolete()| _
+|(4)>| _
+|(5)Public Class ImplicitLineContinuationDummy
+
+    Public Function GetUsername(ByVal username As String,| _
+|(6)                                ByVal delimiter As Char,| _
+|(7)                                ByVal position As Integer| _
+|(8)                                ) As String
+
+        Return username.Split(delimiter)(position)
+    End Function
+
+    Public Sub UsernameTest(| _
+|(9)                           )
+        Dim username = GetUsername(| _
+|(10)            Security.Principal.WindowsIdentity.GetCurrent().Name,| _
+|(11)            CChar("\"),| _
+|(12)            1| _
+|(13)        )
+    End Sub
+
+End Class
+------------------------------------------------
+0: Explicit line continuation character is redundant
+QUICKFIXES:
+Remove explicit line continuation
+--Remove explicit line continuations in file
+--Remove explicit line continuations in project
+--Remove explicit line continuations in solution
+1: Explicit line continuation character is redundant
+QUICKFIXES:
+Remove explicit line continuation
+--Remove explicit line continuations in file
+--Remove explicit line continuations in project
+--Remove explicit line continuations in solution
+2: Explicit line continuation character is redundant
+QUICKFIXES:
+Remove explicit line continuation
+--Remove explicit line continuations in file
+--Remove explicit line continuations in project
+--Remove explicit line continuations in solution
+3: Explicit line continuation character is redundant
+QUICKFIXES:
+Remove explicit line continuation
+--Remove explicit line continuations in file
+--Remove explicit line continuations in project
+--Remove explicit line continuations in solution
+4: Explicit line continuation character is redundant
+QUICKFIXES:
+Remove explicit line continuation
+--Remove explicit line continuations in file
+--Remove explicit line continuations in project
+--Remove explicit line continuations in solution
+5: Explicit line continuation character is redundant
+QUICKFIXES:
+Remove explicit line continuation
+--Remove explicit line continuations in file
+--Remove explicit line continuations in project
+--Remove explicit line continuations in solution
+6: Explicit line continuation character is redundant
+QUICKFIXES:
+Remove explicit line continuation
+--Remove explicit line continuations in file
+--Remove explicit line continuations in project
+--Remove explicit line continuations in solution
+7: Explicit line continuation character is redundant
+QUICKFIXES:
+Remove explicit line continuation
+--Remove explicit line continuations in file
+--Remove explicit line continuations in project
+--Remove explicit line continuations in solution
+8: Explicit line continuation character is redundant
+QUICKFIXES:
+Remove explicit line continuation
+--Remove explicit line continuations in file
+--Remove explicit line continuations in project
+--Remove explicit line continuations in solution
+9: Explicit line continuation character is redundant
+QUICKFIXES:
+Remove explicit line continuation
+--Remove explicit line continuations in file
+--Remove explicit line continuations in project
+--Remove explicit line continuations in solution
+10: Explicit line continuation character is redundant
+QUICKFIXES:
+Remove explicit line continuation
+--Remove explicit line continuations in file
+--Remove explicit line continuations in project
+--Remove explicit line continuations in solution
+11: Explicit line continuation character is redundant
+QUICKFIXES:
+Remove explicit line continuation
+--Remove explicit line continuations in file
+--Remove explicit line continuations in project
+--Remove explicit line continuations in solution
+12: Explicit line continuation character is redundant
+QUICKFIXES:
+Remove explicit line continuation
+--Remove explicit line continuations in file
+--Remove explicit line continuations in project
+--Remove explicit line continuations in solution
+13: Explicit line continuation character is redundant
+QUICKFIXES:
+Remove explicit line continuation
+--Remove explicit line continuations in file
+--Remove explicit line continuations in project
+--Remove explicit line continuations in solution

@@ -1,0 +1,47 @@
+﻿Public Class Case1
+
+    Private _myProperty As String
+
+    Public Property MyProperty As String
+        Get
+            Return _myProperty
+        End Get
+        Set(|ByVal|(0) value As String)
+            _myProperty = value
+        End Set
+    End Property
+
+    Public Sub New(|ByVal|(1) myTestParam As Integer)
+
+    End Sub
+
+    Public Shared Sub DoSomeStuff(|ByVal|(2) stuffID As Integer, ByRef anotherID As Integer, |ByVal|(3) moreStuffID As Integer)
+
+    End Sub
+
+End Class
+------------------------------------------------
+0: ByVal Keyword is redundant
+QUICKFIXES:
+Remove ByVal keyword
+--Remove ByVal keywords in file
+--Remove ByVal keywords in project
+--Remove ByVal keywords in solution
+1: ByVal Keyword is redundant
+QUICKFIXES:
+Remove ByVal keyword
+--Remove ByVal keywords in file
+--Remove ByVal keywords in project
+--Remove ByVal keywords in solution
+2: ByVal Keyword is redundant
+QUICKFIXES:
+Remove ByVal keyword
+--Remove ByVal keywords in file
+--Remove ByVal keywords in project
+--Remove ByVal keywords in solution
+3: ByVal Keyword is redundant
+QUICKFIXES:
+Remove ByVal keyword
+--Remove ByVal keywords in file
+--Remove ByVal keywords in project
+--Remove ByVal keywords in solution

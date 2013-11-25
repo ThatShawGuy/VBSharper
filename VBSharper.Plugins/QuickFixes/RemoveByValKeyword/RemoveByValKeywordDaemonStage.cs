@@ -11,8 +11,8 @@ using VBSharper.Plugins.QuickFixes.RemoveByValKeyword;
 [assembly: RegisterConfigurableSeverity(RemoveByValKeywordHighlighting.SeverityId,
     null,
     HighlightingGroupIds.CodeRedundancy,
-    "ByVal Keyword is redundant.",
-    "ByVal Keyword is the implicit default and does not need to be stated explicitly.",
+    "ByVal keyword is redundant.",
+    "ByVal keyword is the implicit default and does not need to be stated explicitly.",
     Severity.HINT,
     false)]
 
@@ -52,7 +52,7 @@ namespace VBSharper.Plugins.QuickFixes.RemoveByValKeyword
             TokenNode = tokenNode;
         }
 
-        public string ToolTip { get { return "ByVal Keyword is redundant"; } }
+        public string ToolTip { get { return "ByVal keyword is redundant"; } }
         public string ErrorStripeToolTip { get { return ToolTip; } }
         public int NavigationOffsetPatch { get { return 0; } }
         public ITokenNode TokenNode { get; private set; }
