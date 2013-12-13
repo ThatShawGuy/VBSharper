@@ -24,7 +24,7 @@ Public Class TestDummy3
         Dim runners = New List(Of String)
 
         Dim myBoolean As Boolean
-        myBoolean = (testers IsNot Nothing)
+        myBoolean = (Not testers Is Nothing)
 
         Dim myArray As Array = testers.ToList().ToArray()
         Dim justATest = ControlChars.NewLine
@@ -44,12 +44,17 @@ Public Class TestDummy3
         Return String.Empty
     End Function
 
-    Public Sub JustDoIt(ByVal it As String)
-
+    Public Shared Sub JustDoIt(ByVal it As String)
+        Dim anotherVariable = "myVar"
+        Dim myInteger = 8000
+        Dim anotherTest = GetSomeStuff(myInteger, 500)
     End Sub
 
-    Public Sub JustDoIt()
-        Dim test = GetSomeStuff(9, 5)
+    Public Shared Sub JustDoIt(ByVal justATest As Double)
+        Dim myInteger = 9
+        Dim test = GetSomeStuff(myInteger, 5)
+        Dim myString = "My Test"
+        JustDoIt(myString)
     End Sub
 
 End Class

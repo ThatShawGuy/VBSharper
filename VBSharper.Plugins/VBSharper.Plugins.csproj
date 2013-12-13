@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\JetBrains.ReSharper.SDK.8.1.411-EAP\build\JetBrains.ReSharper.SDK.Props" Condition="Exists('..\packages\JetBrains.ReSharper.SDK.8.1.411-EAP\build\JetBrains.ReSharper.SDK.Props')" />
+  <Import Project="..\packages\JetBrains.ReSharper.SDK.8.1.555\build\JetBrains.ReSharper.SDK.Props" Condition="Exists('..\packages\JetBrains.ReSharper.SDK.8.1.555\build\JetBrains.ReSharper.SDK.Props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -67,6 +67,19 @@
     <Compile Include="QuickFixes\UseShortCircuitOperators\UseShortCircuitOperatorsQuickFix.cs" />
     <Compile Include="QuickFixes\UseShortCircuitOperators\UseShortCircuitOperatorsQuickFixHelper.cs" />
     <Compile Include="QuickFixes\UseShortCircuitOperators\UseShortCircuitOperatorsSettings.cs" />
+    <Compile Include="Refactorings\SharedToExtension\ISharedToExtensionWorkflowProvider.cs" />
+    <Compile Include="Refactorings\SharedToExtension\ExtensionToSharedAction.cs" />
+    <Compile Include="Refactorings\SharedToExtension\SharedToExtensionAction.cs" />
+    <Compile Include="Refactorings\SharedToExtension\SharedToExtensionHelper.cs" />
+    <Compile Include="Refactorings\SharedToExtension\SharedToExtensionRefactoring.cs" />
+    <Compile Include="Refactorings\SharedToExtension\SharedToExtensionWorkflow.cs" />
+    <Compile Include="Refactorings\SharedToExtension\SharedToExtensionWorkflowProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VBSharper.Core\VBSharper.Core.csproj">
+      <Project>{1b903227-0b8c-45bc-8c6d-8bdb4fa4fd30}</Project>
+      <Name>VBSharper.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -75,6 +88,6 @@
     <!--<ReSharperSdkTargets Condition=" '$(ReSharperSdkTargets)' == '' ">$(MSBuildExtensionsPath)\JetBrains\ReSharper.SDK\v8.0</ReSharperSdkTargets>-->
   </PropertyGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\JetBrains.ReSharper.SDK.8.1.411-EAP\build\JetBrains.ReSharper.SDK.Targets" Condition="Exists('..\packages\JetBrains.ReSharper.SDK.8.1.411-EAP\build\JetBrains.ReSharper.SDK.Targets')" />
+  <Import Project="..\packages\JetBrains.ReSharper.SDK.8.1.555\build\JetBrains.ReSharper.SDK.Targets" Condition="Exists('..\packages\JetBrains.ReSharper.SDK.8.1.555\build\JetBrains.ReSharper.SDK.Targets')" />
   <!--<Import Project="$(ReSharperSdkTargets)\Plugin.Targets" />-->
 </Project>

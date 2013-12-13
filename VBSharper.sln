@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VBSharper.Plugins", "VBShar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VBSharper.Plugins.Tests", "VBSharper.Plugins.Tests\VBSharper.Plugins.Tests.csproj", "{40F92766-2B77-47CA-BE63-3C053C83C83B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VBSharper.Core", "VBSharper.Core\VBSharper.Core.csproj", "{1B903227-0B8C-45BC-8C6D-8BDB4FA4FD30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{40F92766-2B77-47CA-BE63-3C053C83C83B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40F92766-2B77-47CA-BE63-3C053C83C83B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40F92766-2B77-47CA-BE63-3C053C83C83B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B903227-0B8C-45BC-8C6D-8BDB4FA4FD30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B903227-0B8C-45BC-8C6D-8BDB4FA4FD30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B903227-0B8C-45BC-8C6D-8BDB4FA4FD30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B903227-0B8C-45BC-8C6D-8BDB4FA4FD30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
