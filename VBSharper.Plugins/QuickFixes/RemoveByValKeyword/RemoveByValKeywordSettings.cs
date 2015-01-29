@@ -1,5 +1,5 @@
 ﻿using JetBrains.Application.Settings;
-using JetBrains.ReSharper.Settings;
+using JetBrains.ReSharper.Resources.Settings;
 
 namespace VBSharper.Plugins.QuickFixes.RemoveByValKeyword
 {

@@ -1,4 +1,4 @@
-using JetBrains.ReSharper.Feature.Services.Bulbs;
+using JetBrains.ReSharper.Feature.Services.QuickFixes;
 using JetBrains.ReSharper.Psi.VB.Tree;
 using JetBrains.Util;
 using VBSharper.Plugins.QuickFixes.Base;

@@ -33,7 +33,17 @@ Public Class TestDummy1
             ' Do something really cool here.
         End If
 
-        If Not (Not testers Is Nothing And Not testers Is Nothing) OrElse Not testers Is Nothing AndAlso Not runners IsNot Nothing Then
+        If (runners.Any(Function(runner) runner = 1 Or runner = 2) Or runners.Count = 1) And runners.Count < 0 Then
+            ' Do something really cool here.
+        End If
+
+        If (From runner In runners
+            Where runner = 1 Or runner = 2 _
+            Select runner).Any() Then
+            ' Do something really cool here.
+        End If
+
+        If Not (Not testers Is Nothing And Not testers Is Nothing) Or Not testers Is Nothing AndAlso Not runners IsNot Nothing Then
             myBoolean = True
         End If
 

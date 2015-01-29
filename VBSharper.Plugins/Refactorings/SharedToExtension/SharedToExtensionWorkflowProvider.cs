@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Application.DataContext;
-using JetBrains.ReSharper.Refactorings.Workflow;
+using JetBrains.ReSharper.Feature.Services.Refactorings;
 using DataConstants = JetBrains.ProjectModel.DataContext.DataConstants;
 
 namespace VBSharper.Plugins.Refactorings.SharedToExtension

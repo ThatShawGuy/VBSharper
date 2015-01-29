@@ -2,33 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Application.Progress;
-using JetBrains.DocumentModel;
 using JetBrains.ProjectModel;
-using JetBrains.ReSharper.Intentions.Bulk;
-using JetBrains.ReSharper.Intentions.Extensibility;
-using JetBrains.ReSharper.Intentions.Extensibility.Menu;
-using JetBrains.ReSharper.Intentions.QuickFixes.Bulk;
+using JetBrains.ReSharper.Feature.Services.Bulbs;
+using JetBrains.ReSharper.Feature.Services.Bulk;
+using JetBrains.ReSharper.Feature.Services.Bulk.Actions;
+using JetBrains.ReSharper.Feature.Services.Intentions;
+using JetBrains.ReSharper.Feature.Services.QuickFixes;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.Files;
 using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.ReSharper.Psi.VB;
 using JetBrains.ReSharper.Psi.VB.Tree;
 using JetBrains.TextControl;
+using JetBrains.UI.BulbMenu;
 
 namespace VBSharper.Plugins.QuickFixes.Base
 {
-    public abstract class BulkQuickFixBase<T> : QuickFixBase where T : ITreeNode
+    public abstract class BulkQuickFixBase<T> : QuickFixBase, IScopeBulkAction where T : ITreeNode
     {
-        public abstract string ProgressIndicatorTaskName { get; }
-        
+        private readonly FileCollectorInfo _fileCollectorInfo;
         protected readonly T TreeNode;
         protected readonly IQuickFixHelper<T> QuickFixHelper;
         protected readonly FileQuickFixBase<T> FileQuickFix;
-        
+        public abstract string ProgressIndicatorTaskName { get; }
+
         protected BulkQuickFixBase(T treeNode, IQuickFixHelper<T> quickFixHelper, FileQuickFixBase<T> fileQuickFix) {
             TreeNode = treeNode;
             QuickFixHelper = quickFixHelper;
             FileQuickFix = fileQuickFix;
+
+            _fileCollectorInfo = new FileCollectorInfo(TreeNode.GetSourceFile().ToProjectFile(), VBLanguage.Instance);
         }
 
         protected override Action<ITextControl> ExecutePsiTransaction(ISolution solution, IProgressIndicator progress) {
@@ -37,29 +40,36 @@ namespace VBSharper.Plugins.QuickFixes.Base
             return null;
         }
 
-        public override IEnumerable<IntentionAction> CreateBulbItems() {
-            var file = TreeNode.GetContainingFile();
-            var sourceFile = TreeNode.GetSourceFile();
-            var projectFile = sourceFile.ToProjectFile();
-            if (projectFile == null) return base.CreateBulbItems();
+        public string BulkText {
+            get { return Text + "s"; }
+        }
 
-            var solution = projectFile.GetSolution();
-            var psiFiles = solution.GetComponent<IPsiFiles>();
+        public FileCollectorInfo FileCollectorInfo {
+            get { return _fileCollectorInfo; }
+        }
 
-            Action<IDocument, IPsiSourceFile, IProgressIndicator> psiTransactionAction =
-                (document, psiSourceFile, progressIndicator) => {
-                    progressIndicator.TaskName = ProgressIndicatorTaskName;
-                    if (psiSourceFile.Properties.IsGeneratedFile) return;
+        public bool Single {
+            get { return true; }
+        }
 
-                    foreach (var psiFile in psiFiles.GetPsiFiles<VBLanguage>(psiSourceFile).OfType<IVBFile>()) {
-                        QuickFixHelper.ApplyQuickFix(psiFile);
-                    }
-                };
+        public Action<ITextControl> ExecuteAction(ISolution solution, Scope scope, IProgressIndicator singleFileProgress) {
+            foreach (IProjectFile projectFile in scope.GetFilesToProcess(singleFileProgress)) {
+                var sourceFile = projectFile.ToSourceFile();
+                if (sourceFile == null) continue;
+                if (sourceFile.Properties.IsGeneratedFile) continue;
 
-            FileQuickFix.File = file;
-            var predicateByPsiLanaguage = BulkItentionsBuilderEx.CreateAcceptFilePredicateByPsiLanaguage<VBLanguage>(solution);
-            var bulkQuickFixBuilder = new BulkQuickFixWithCommonTransactionBuilder(this, FileQuickFix, solution, this.Text + "s", psiTransactionAction, predicateByPsiLanaguage);
-            return bulkQuickFixBuilder.CreateBulkActions(projectFile, IntentionsAnchors.QuickFixesAnchor, IntentionsAnchors.QuickFixesAnchorPosition);
+                singleFileProgress.TaskName = ProgressIndicatorTaskName;
+
+                foreach (var psiFile in sourceFile.GetPsiFiles<VBLanguage>().OfType<IVBFile>()) {
+                    QuickFixHelper.ApplyQuickFix(psiFile);
+                }
+            }
+
+            return null;
+        }
+
+        public IEnumerable<IntentionAction> ToIntentionAction(IBulbAction bulbAction, IAnchor anchor) {
+            return bulbAction.ToQuickFixAction(anchor);
         }
     }
 }

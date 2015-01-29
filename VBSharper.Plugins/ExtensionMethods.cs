@@ -1,9 +1,9 @@
-﻿using JetBrains.Application;
-using JetBrains.ReSharper.Psi;
+﻿using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.ExtensionsAPI.Tree;
 using JetBrains.ReSharper.Psi.Files;
 using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.ReSharper.Psi.VB.Tree;
+using JetBrains.ReSharper.Resources.Shell;
 
 namespace VBSharper.Plugins
 {

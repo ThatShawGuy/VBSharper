@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Linq;
 using JetBrains.Application.Settings;
-using JetBrains.ReSharper.Daemon;
+using JetBrains.DocumentModel;
 using JetBrains.ReSharper.Daemon.VB.Stages;
+using JetBrains.ReSharper.Feature.Services.Daemon;
+using JetBrains.ReSharper.Feature.Services.VB.Daemon;
 using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.ReSharper.Psi.VB;
 using JetBrains.ReSharper.Psi.VB.Tree;
@@ -50,6 +52,10 @@ namespace VBSharper.Plugins.QuickFixes.RemoveByValKeyword
 
         public RemoveByValKeywordHighlighting(ITokenNode tokenNode) {
             TokenNode = tokenNode;
+        }
+
+        public override DocumentRange CalculateRange() {
+            throw new NotImplementedException();
         }
 
         public string ToolTip { get { return "ByVal keyword is redundant"; } }

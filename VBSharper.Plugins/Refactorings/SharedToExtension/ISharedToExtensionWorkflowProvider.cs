@@ -1,4 +1,4 @@
-﻿using JetBrains.ReSharper.Refactorings.Workflow;
+﻿using JetBrains.ReSharper.Feature.Services.Refactorings;
 
 namespace VBSharper.Plugins.Refactorings.SharedToExtension
 {

@@ -46,15 +46,18 @@ Public Class TestDummy1
 
         If CBool(myBoolean) Then Return CStr(String.Empty)
 
+        JustDoIt("test")
+
         Return String.Empty
     End Function
 
-    Public Sub JustDoIt(ByVal it As String)
+    Public Shared Sub JustDoIt(ByVal it As String)
 
     End Sub
 
-    Public Sub JustDoIt()
-        Dim test = GetSomeStuff(1, 2)
+    Public Shared Sub JustDoIt()
+        Dim myInteger = 1
+        Dim test = GetSomeStuff(myInteger, 2)
     End Sub
 
 End Class

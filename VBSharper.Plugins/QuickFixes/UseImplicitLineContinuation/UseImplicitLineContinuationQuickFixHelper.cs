@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Application;
 using JetBrains.ReSharper.Psi.ExtensionsAPI.Tree;
 using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.ReSharper.Psi.VB.Parsing;
-using JetBrains.ReSharper.Psi.VB.Util;
+using JetBrains.ReSharper.Resources.Shell;
 using VBSharper.Plugins.QuickFixes.Base;
 
 namespace VBSharper.Plugins.QuickFixes.UseImplicitLineContinuation
@@ -14,8 +13,9 @@ namespace VBSharper.Plugins.QuickFixes.UseImplicitLineContinuation
         public override IEnumerable<QuickFixTreeNodeDocumentRange> GetTreeNodeDocumentRanges(IFile file) {
             using (ReadLockCookie.Create()) {
                 var explicitLineContinuations =
-                    file.EnumerateSubTree()
+                    file.ThisAndDescendants()
                         .OfType<ITokenNode>()
+                        .ToEnumerable()
                         .Where(node => node.GetTokenType() == VBTokenType.LINE_CONTINUATION)
                         .ToList();
 

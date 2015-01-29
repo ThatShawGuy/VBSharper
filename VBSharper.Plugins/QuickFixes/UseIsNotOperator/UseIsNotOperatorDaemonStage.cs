@@ -1,8 +1,10 @@
 using System;
 using System.Linq;
 using JetBrains.Application.Settings;
-using JetBrains.ReSharper.Daemon;
+using JetBrains.DocumentModel;
 using JetBrains.ReSharper.Daemon.VB.Stages;
+using JetBrains.ReSharper.Feature.Services.Daemon;
+using JetBrains.ReSharper.Feature.Services.VB.Daemon;
 using JetBrains.ReSharper.Psi.VB;
 using JetBrains.ReSharper.Psi.VB.Tree;
 using VBSharper.Plugins.QuickFixes.UseIsNotOperator;
@@ -48,6 +50,10 @@ namespace VBSharper.Plugins.QuickFixes.UseIsNotOperator
 
         public UseIsNotOperatorHighlighting(ILogicalNotExpression expression) {
             Expression = expression;
+        }
+
+        public override DocumentRange CalculateRange() {
+            throw new NotImplementedException();
         }
 
         public string ToolTip { get { return "Use of IsNot operator is preferred"; } }

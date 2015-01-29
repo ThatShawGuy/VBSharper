@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Application;
 using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.ReSharper.Psi.VB;
 using JetBrains.ReSharper.Psi.VB.Tree;
+using JetBrains.ReSharper.Resources.Shell;
 using VBSharper.Plugins.QuickFixes.Base;
 
 namespace VBSharper.Plugins.QuickFixes.UseIsNotOperator
@@ -12,7 +12,7 @@ namespace VBSharper.Plugins.QuickFixes.UseIsNotOperator
     {
         public override IEnumerable<QuickFixTreeNodeDocumentRange> GetTreeNodeDocumentRanges(IFile file) {
             using (ReadLockCookie.Create()) {
-                foreach (var logicalNotExpression in file.EnumerateSubTree().OfType<ILogicalNotExpression>()) {
+                foreach (var logicalNotExpression in file.ThisAndDescendants().OfType<ILogicalNotExpression>()) {
                     var isExpression = logicalNotExpression.Children<IIsExpression>().FirstOrDefault();
                     if (isExpression == null) continue;
 

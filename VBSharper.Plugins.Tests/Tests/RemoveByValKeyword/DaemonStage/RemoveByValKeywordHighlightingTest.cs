@@ -1,6 +1,7 @@
 ﻿using JetBrains.Application.Settings;
 using JetBrains.ReSharper.Daemon;
-using JetBrains.ReSharper.DaemonTests.VB;
+using JetBrains.ReSharper.Feature.Services.Daemon;
+using JetBrains.ReSharper.FeaturesTestFramework.Daemon;
 using NUnit.Framework;
 using VBSharper.Plugins.QuickFixes.RemoveByValKeyword;
 

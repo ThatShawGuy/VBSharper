@@ -1,10 +1,10 @@
-﻿using JetBrains.ActionManagement;
-using JetBrains.ReSharper.Refactorings.Workflow;
+﻿using JetBrains.ReSharper.Feature.Services.Refactorings;
+using JetBrains.UI.ActionsRevised;
 using JetBrains.UI.RichText;
 
 namespace VBSharper.Plugins.Refactorings.SharedToExtension
 {
-    [ActionHandler(ActionId)]
+    [Action(ActionId)]
     public class ExtensionToSharedAction : ExtensibleRefactoringAction<ISharedToExtensionWorkflowProvider>
     {
         public const string ActionId = "ExtensionToSharedAction";

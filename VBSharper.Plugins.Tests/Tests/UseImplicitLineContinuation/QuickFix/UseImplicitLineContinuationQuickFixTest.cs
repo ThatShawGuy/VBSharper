@@ -1,4 +1,4 @@
-﻿using JetBrains.ReSharper.IntentionsTests;
+﻿using JetBrains.ReSharper.FeaturesTestFramework.Intentions;
 using NUnit.Framework;
 using VBSharper.Plugins.QuickFixes.UseImplicitLineContinuation;
 

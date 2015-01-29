@@ -2,12 +2,12 @@
 using System.Linq;
 using JetBrains.Application.DataContext;
 using JetBrains.ProjectModel;
+using JetBrains.ReSharper.Feature.Services.Refactorings;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.Pointers;
 using JetBrains.ReSharper.Psi.VB;
 using JetBrains.ReSharper.Refactorings.MoveStaticMembers;
-using JetBrains.ReSharper.Refactorings.Workflow;
-using VBSharper.Core.ExtensionMethods;
+using VBSharper.Plugins.Core.ExtensionMethods;
 
 namespace VBSharper.Plugins.Refactorings.SharedToExtension
 {
