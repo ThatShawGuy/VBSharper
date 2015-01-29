@@ -3,8 +3,6 @@ VBSharper
 
 VBSharper is a set of ReSharper extensions for those of us who want/need to work in VB.Net for one reason or another.
 
-Many thanks to the ReSharper team for allowing plugins full access to the ReSharper API.
-
 Bulk Quick Fixes
 ----------------
 <ul>
